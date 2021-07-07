@@ -1,0 +1,7 @@
+jack shephard,100000,1978,Sales,FULL_TIME
+kate austen,200000,1985,IT,PART_TIME
+ben linus,150000,1967,Finance,FULL_TIME
+james sawyer,70000,1979,HR,FULL_TIME
+kim kwon,120000,1986,Sales,FULL_TIME
+sun kwon,170000,1984,IT,PART_TIME
+hugo reyes,120000,1992,IT,FULL_TIME
