@@ -1,7 +1,7 @@
 """
     OOP:   i) Class/Object -> Encapsulation
           ii) Inheritance  -> Re-usability
-         iii) Polymorphism -> Agility *
+         iii) Polymorphism -> Agility -> Inheritance -> Class
 """
 from typing import Type
 
@@ -83,6 +83,7 @@ class customer:
              remove_account ✔
              get_account ✔
              get_total_balance ✔
+             fun
     deadline: 11:10
     """
 
@@ -92,6 +93,10 @@ class customer:
         self.accounts = dict()
         for acc in accounts:
             self.accounts[acc.iban] = acc
+
+    def fun(self, amount=10):
+        for acc in self.accounts.values():
+            acc.withdraw(amount)
 
     def add_account(self, acc):
         self.accounts[acc.iban] = acc
