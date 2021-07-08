@@ -1,7 +1,7 @@
 """
     OOP:   i) Class/Object -> Encapsulation
-          ii) Inheritance  -> Re-usability *
-         iii) Polymorphism -> Agility
+          ii) Inheritance  -> Re-usability
+         iii) Polymorphism -> Agility *
 """
 from typing import Type
 
@@ -72,6 +72,17 @@ class checking_account(account):
 
     def __str__(self):  # overriding
         return f"checking_account (iban={self.iban}, balance={self.balance}, overdraft_amount={self.overdraft_amount})"
+
+class customer:
+    """
+    attributes: full_name: str, tc_kimlik_no: str, accounts: {}
+    methods: __init__
+             __str__
+             add_account
+             remove_account
+             get_account
+             get_total_balance
+    """
 
 
 try:
