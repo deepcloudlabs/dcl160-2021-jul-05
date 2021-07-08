@@ -110,6 +110,16 @@ class customer:
             total += acc.balance
         return total
 
+    def summarize_dict_methods(self):
+        for iban, acc in self.accounts.items():
+            print(f"{iban}: {acc}")
+
+        for iban in self.accounts.keys():
+            print(f"{iban}: {self.accounts[iban]}")
+
+        for acc in self.accounts.values():
+            print(f"{acc.iban}: {acc}")
+
     def __str__(self):
         return f"customer (full_name: {self.full_name}, kimlik: {self.tc_kimlik_no}," \
                f" number of accounts: {len(self.accounts)}, " \
@@ -124,6 +134,8 @@ try:
     jack.add_account(checking_account("tr4", 500_000, 10_000))
     jack.remove_account("tr2")
     print(jack)
+    jack.summarize_dict_methods()
+
     acc1 = account(iban="tr1", balance=10_000)
     acc2 = checking_account(iban="tr2", balance=20_000, overdraft_amount=1_000)
     print(acc1)
