@@ -73,19 +73,57 @@ class checking_account(account):
     def __str__(self):  # overriding
         return f"checking_account (iban={self.iban}, balance={self.balance}, overdraft_amount={self.overdraft_amount})"
 
+
 class customer:
     """
     attributes: full_name: str, tc_kimlik_no: str, accounts: {}
-    methods: __init__
-             __str__
-             add_account
-             remove_account
-             get_account
-             get_total_balance
+    methods: __init__ ✔
+             __str__ ✔
+             add_account ✔
+             remove_account ✔
+             get_account ✔
+             get_total_balance ✔
+    deadline: 11:10
     """
+
+    def __init__(self, full_name, tc_kimlik_no, *accounts):
+        self.full_name = full_name
+        self.tc_kimlik_no = tc_kimlik_no
+        self.accounts = dict()
+        for acc in accounts:
+            self.accounts[acc.iban] = acc
+
+    def add_account(self, acc):
+        self.accounts[acc.iban] = acc
+
+    def get_account(self, iban):
+        return self.accounts[iban]
+
+    def remove_account(self, iban):
+        del self.accounts[iban]
+
+    def get_total_balance(self, mode="functional"):
+        if mode == "functional":
+            return sum(map(lambda acc: acc.balance, self.accounts.values()))
+        total = 0
+        for acc in self.accounts.values():
+            total += acc.balance
+        return total
+
+    def __str__(self):
+        return f"customer (full_name: {self.full_name}, kimlik: {self.tc_kimlik_no}," \
+               f" number of accounts: {len(self.accounts)}, " \
+               f" total balance: {self.get_total_balance()})"
 
 
 try:
+    jack = customer("jack bauer", "11111111110",
+                    account("tr1", 10_000),
+                    checking_account("tr2", 5_000, 1_250),
+                    account("tr3", 50_000))
+    jack.add_account(checking_account("tr4", 500_000, 10_000))
+    jack.remove_account("tr2")
+    print(jack)
     acc1 = account(iban="tr1", balance=10_000)
     acc2 = checking_account(iban="tr2", balance=20_000, overdraft_amount=1_000)
     print(acc1)
