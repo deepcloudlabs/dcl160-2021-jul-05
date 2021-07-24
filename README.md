@@ -94,9 +94,9 @@ from deepcloudlabs.dictionary import get_word
 print(get_word(42))
 ```
 
-# Python'da PIP paketi oluşturmak
+# Python'da PIP Paketi Oluşturmak
 
-Python'da pip paketi oluşturmak için aşağıdaki adımları izleyebilirsiniz:
+Python'da **pip paketi** oluşturmak için aşağıdaki adımları izleyebilirsiniz:
 
 ![paket dizin yapısı](pip-module-fig01.png?raw=true "package directory content")
 
